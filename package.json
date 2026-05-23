@@ -1,0 +1,36 @@
+{
+  "name": "barbearia-api-tela",
+  "version": "1.0.0",
+  "description": "API REST de barbearia com tela de navegação, Express, Prisma, MySQL, JWT e MVC.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "seed": "node prisma/seed.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "prisma",
+    "mysql",
+    "jwt",
+    "barbearia"
+  ],
+  "author": "Henrique Gonçalves",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "bcrypt": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "jsonwebtoken": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "latest",
+    "prisma": "^6.19.3"
+  }
+}
