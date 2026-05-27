@@ -16,6 +16,43 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
+app.get('/', (req, res) => {
+  return res.status(200).json({
+    message: 'API da Barbearia rodando!',
+    deploy: 'https://barbearia-api-v36t.onrender.com',
+    docs: {
+      health: '/api/health',
+      auth: {
+        register: 'POST /api/auth/register',
+        login: 'POST /api/auth/login',
+        me: 'GET /api/auth/me'
+      },
+      recursos: {
+        clientes: '/api/clientes',
+        barbeiros: '/api/barbeiros',
+        servicos: '/api/servicos',
+        agendamentos: '/api/agendamentos'
+      }
+    }
+  });
+});
+
+app.get('/api', (req, res) => {
+  return res.status(200).json({
+    message: 'Rotas disponiveis na API da Barbearia.',
+    endpoints: [
+      'GET /api/health',
+      'POST /api/auth/register',
+      'POST /api/auth/login',
+      'GET /api/auth/me',
+      'GET /api/clientes',
+      'GET /api/barbeiros',
+      'GET /api/servicos',
+      'GET /api/agendamentos'
+    ]
+  });
+});
+
 app.get('/api/health', (req, res) => {
   return res.status(200).json({ message: 'API da Barbearia rodando!' });
 });
